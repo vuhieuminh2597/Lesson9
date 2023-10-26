@@ -46,7 +46,7 @@ public class Subject {
     public String getUpdateIn() {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         if (updateIn == null){
-            return "null";
+            return "___";
         }
         return updateIn.format(dateTimeFormatter);
     }
@@ -57,7 +57,7 @@ public class Subject {
 
     public Teacher getUpdateBy() {
         if (updateBy == null){
-            return new Teacher("null","01/01/1970");
+            return new Teacher("___","01/01/1970");
         }
         return updateBy;
     }

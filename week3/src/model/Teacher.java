@@ -2,7 +2,7 @@ package model;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 public class Teacher {
     private static int nextInt = 100;
@@ -10,6 +10,7 @@ public class Teacher {
     private String name;
     private Date dayOfBirth;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private Set<Subject> teaching = new HashSet<>();
 
     public Teacher(String name, String dayOfBirth) {
         setId(null);
@@ -47,8 +48,9 @@ public class Teacher {
         this.name = name;
     }
 
-    public Date getDayOfBirth() {
-        return dayOfBirth;
+    public String getDayOfBirth() {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        return format.format(dayOfBirth);
     }
 
     public void setDayofBirth(String dayofBirth) {
@@ -57,5 +59,35 @@ public class Teacher {
         } catch (ParseException e) {
             e.getMessage();
         }
+    }
+
+    public Set<Subject> getTeaching() {
+        return teaching;
+    }
+
+    public void setTeaching(Subject teaching) {
+        this.teaching.add(teaching);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Teacher teacher = (Teacher) object;
+        return Objects.equals(id, teacher.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", dayOfBirth=" + dayOfBirth +
+                '}';
     }
 }

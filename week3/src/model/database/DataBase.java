@@ -11,9 +11,12 @@ import java.util.Map;
 
 public class DataBase {
 
-    public static List<Student> students()  {
-        List<Student> studentList = new ArrayList<>() ;
+    public static List<Student> students() {
+        List<Student> studentList = new ArrayList<>();
         studentList.add(new Student("Vũ Minh Hiếu", "25/09/1997"));
+        studentList.add(new Student("Ngô Kiến Huy", "10/04/1995"));
+        studentList.add(new Student("Lâm Văn Vũ", "07/04/1988"));
+        studentList.add(new Student("Trịnh Thị Mỹ Kim", "09/09/1999"));
         return studentList;
     }
 
